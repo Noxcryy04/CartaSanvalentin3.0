@@ -1,0 +1,141 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #4B0F0F;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.card {
+    width: 90%; /* Ajustar el tamaño de la carta para ocupar más espacio */
+    max-width: 800px; /* Tamaño máximo de la carta */
+    height: 90%; /* Ajustar la altura automáticamente */
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    z-index: 1;
+    margin: 10px 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Hacer la carta translúcida */
+    animation: slideIn 1s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    overflow: auto;
+    font-size: 16px; /* Ajustar el tamaño del texto */
+}
+
+.front {
+    background-color: rgba(255, 204, 204, 0.8);
+    color: #800000;
+    cursor: pointer;
+}
+
+.back {
+    background-color: rgba(255, 153, 153, 0.8);
+    color: #ffffff;
+    transform: rotateY(180deg);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.particle-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    animation: move 5s infinite linear;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    100% {
+        transform: translateX(100vw) translateY(100vh);
+    }
+}
+
+#counter {
+    display: none;
+    font-size: 16px; /* Ajustar el tamaño del texto */
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+}
+
+#show-counter {
+    cursor: pointer;
+    background-color: #800000;
+    color: white;
+    border: none;
+    padding: 8px 16px; /* Ajustar el tamaño del botón */
+    border-radius: 5px;
+    font-size: 14px; /* Ajustar el tamaño del texto */
+    margin-top: 10px;
+}
