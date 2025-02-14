@@ -27,13 +27,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+    flex-direction: column; /* Alinear en columna para dispositivos móviles */
 }
 
 .card {
-    width: 90%; /* Ajustar el tamaño de la carta para ocupar más espacio */
-    max-width: 800px; /* Tamaño máximo de la carta */
-    height: 90%; /* Ajustar la altura automáticamente */
+    width: 80%; /* Ajustar el tamaño de la carta para dispositivos móviles */
+    max-width: 600px; /* Tamaño máximo de la carta */
+    height: auto; /* Ajustar la altura automáticamente */
     position: relative;
     perspective: 1000px;
     transform-style: preserve-3d;
@@ -66,21 +66,21 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px; /* Ajustar el padding */
+    background-color: rgba(255, 255, 255, 0.8); /* Hacer la carta translúcida */
     color: #333;
-    overflow: auto;
-    font-size: 16px; /* Ajustar el tamaño del texto */
+    overflow: auto; /* Asegurarse de que el contenido no se desborde */
+    font-size: 18px; /* Aumentar el tamaño de la fuente */
 }
 
 .front {
-    background-color: rgba(255, 204, 204, 0.8);
+    background-color: rgba(255, 204, 204, 0.8); /* Hacer la carta translúcida */
     color: #800000;
     cursor: pointer;
 }
 
 .back {
-    background-color: rgba(255, 153, 153, 0.8);
+    background-color: rgba(255, 153, 153, 0.8); /* Hacer la carta translúcida */
     color: #ffffff;
     transform: rotateY(180deg);
 }
@@ -109,6 +109,17 @@ body {
     animation: move 5s infinite linear;
 }
 
+.heart-particle {
+    position: absolute;
+    background: rgba(255, 0, 0, 0.7);
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    transition: transform 0.2s ease-out;
+    transform: translateZ(0);
+}
+
 @keyframes move {
     0% {
         transform: translateX(0) translateY(0);
@@ -118,10 +129,22 @@ body {
     }
 }
 
+#text-container {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    color: white;
+    z-index: 2;
+}
+
 #counter {
     display: none;
-    font-size: 16px; /* Ajustar el tamaño del texto */
+    position: relative;
+    font-size: 18px; /* Aumentar el tamaño del texto */
     color: white;
+    z-index: 2;
     background-color: rgba(0, 0, 0, 0.7);
     padding: 10px;
     border-radius: 10px;
@@ -129,13 +152,23 @@ body {
     margin-top: 10px;
 }
 
+.counter-item {
+    margin: 5px 0;
+}
+
+.counter-item span {
+    display: block;
+    font-size: 24px; /* Aumentar el tamaño del texto */
+    font-weight: bold;
+}
+
 #show-counter {
     cursor: pointer;
     background-color: #800000;
     color: white;
     border: none;
-    padding: 8px 16px; /* Ajustar el tamaño del botón */
+    padding: 10px 20px; /* Aumentar el tamaño del botón */
     border-radius: 5px;
-    font-size: 14px; /* Ajustar el tamaño del texto */
+    font-size: 16px; /* Aumentar el tamaño del texto */
     margin-top: 10px;
 }
